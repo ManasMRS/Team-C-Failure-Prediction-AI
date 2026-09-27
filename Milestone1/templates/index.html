@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Failure Prediction AI | Project Analyzer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="container">
+
+        <header class="hero">
+            <div class="brand-icon">⚡</div>
+
+            <p class="eyebrow">MILESTONE 1 · MODULE 1</p>
+
+            <h1>Failure Prediction <span>AI</span></h1>
+
+            <p class="subtitle">
+                Startup &amp; Project Risk Analyzer
+            </p>
+
+            <p class="hero-description">
+                Submit your project information to create the foundation
+                for future AI-powered project analysis.
+            </p>
+        </header>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <section class="messages" aria-live="polite">
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">
+                            <span class="alert-icon">
+                                {% if category == "success" %}✓{% else %}!{% endif %}
+                            </span>
+                            <span>{{ message }}</span>
+                        </div>
+                    {% endfor %}
+                </section>
+            {% endif %}
+        {% endwith %}
+
+        <section class="form-card">
+
+            <div class="card-header">
+                <div>
+                    <p class="section-label">PROJECT PROFILE</p>
+                    <h2>Tell us about your project</h2>
+                    <p>
+                        Provide the basic information required for the first stage.
+                    </p>
+                </div>
+
+                <div class="progress-badge">
+                    <strong>1</strong>
+                    <span>of 1</span>
+                </div>
+            </div>
+
+            <form action="{{ url_for('submit_project') }}" method="POST" id="projectForm">
+
+                <div class="form-grid">
+
+                    <div class="field full">
+                        <label for="project_name">Project Name <span>*</span></label>
+                        <input
+                            type="text"
+                            id="project_name"
+                            name="project_name"
+                            placeholder="e.g. Smart Agriculture Platform"
+                            maxlength="150"
+                            required
+                        >
+                        <small class="hint">Give your project a clear and memorable name.</small>
+                    </div>
+
+                    <div class="field full">
+                        <label for="project_description">Project Description <span>*</span></label>
+                        <textarea
+                            id="project_description"
+                            name="project_description"
+                            placeholder="Describe the problem, solution, and how your project works..."
+                            maxlength="2000"
+                            required
+                        ></textarea>
+                        <div class="field-meta">
+                            <small class="hint">Briefly explain the idea and its purpose.</small>
+                            <small class="counter" data-for="project_description">0 / 2000</small>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="target_market">Target Market <span>*</span></label>
+                        <textarea
+                            id="target_market"
+                            name="target_market"
+                            placeholder="Who are your customers or users?"
+                            maxlength="1000"
+                            required
+                        ></textarea>
+                        <small class="hint">Identify the primary users or customers.</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="budget">Budget <span>*</span></label>
+                        <div class="input-with-prefix">
+                            <span>₹</span>
+                            <input
+                                type="number"
+                                id="budget"
+                                name="budget"
+                                placeholder="500000"
+                                min="0"
+                                step="0.01"
+                                required
+                            >
+                        </div>
+                        <small class="hint">Estimated project or startup budget.</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="competition">Competition <span>*</span></label>
+                        <textarea
+                            id="competition"
+                            name="competition"
+                            placeholder="Who are your main competitors?"
+                            maxlength="1000"
+                            required
+                        ></textarea>
+                        <small class="hint">Mention direct or indirect competitors.</small>
+                    </div>
+
+                    <div class="field">
+                        <label for="resources">Resources <span>*</span></label>
+                        <textarea
+                            id="resources"
+                            name="resources"
+                            placeholder="Team, technology, infrastructure, skills..."
+                            maxlength="1000"
+                            required
+                        ></textarea>
+                        <small class="hint">List the resources currently available.</small>
+                    </div>
+
+                    <div class="field full">
+                        <label for="objectives">Objectives <span>*</span></label>
+                        <textarea
+                            id="objectives"
+                            name="objectives"
+                            placeholder="What do you want to achieve with this project?"
+                            maxlength="1500"
+                            required
+                        ></textarea>
+                        <div class="field-meta">
+                            <small class="hint">List the main goals and expected outcomes.</small>
+                            <small class="counter" data-for="objectives">0 / 1500</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-footer">
+                    <div class="required-note">
+                        <span>*</span> Required fields
+                    </div>
+
+                    <button type="submit" id="submitButton">
+                        <span class="button-icon">➜</span>
+                        <span>Submit Project</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <footer>
+            <span>Failure Prediction AI</span>
+            <span>•</span>
+            <span>Milestone 1</span>
+            <span>•</span>
+            <span>Module 1</span>
+        </footer>
+
+    </main>
+
+    <script>
+        const form = document.getElementById("projectForm");
+        const submitButton = document.getElementById("submitButton");
+
+        // Dynamic character counters
+        document.querySelectorAll("textarea[maxlength]").forEach((textarea) => {
+            const counter = document.querySelector(
+                `.counter[data-for="${textarea.id}"]`
+            );
+
+            if (!counter) return;
+
+            const updateCounter = () => {
+                counter.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
+            };
+
+            textarea.addEventListener("input", updateCounter);
+            updateCounter();
+        });
+
+        // Dynamic button state while submitting
+        form.addEventListener("submit", () => {
+            if (!form.checkValidity()) return;
+
+            submitButton.classList.add("loading");
+            submitButton.querySelector("span:last-child").textContent = "Submitting...";
+            submitButton.disabled = true;
+        });
+
+        // Floating label-like visual effect
+        document.querySelectorAll("input, textarea").forEach((field) => {
+            field.addEventListener("focus", () => {
+                field.closest(".field")?.classList.add("active");
+            });
+
+            field.addEventListener("blur", () => {
+                field.closest(".field")?.classList.remove("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
