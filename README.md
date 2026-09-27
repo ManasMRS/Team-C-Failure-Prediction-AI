@@ -6,8 +6,11 @@
 ![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Completed-success.svg)
 
-**🌐 Live Demo:** [👉 Click here to view the live AI dashboard](https://failure-prediction-ai.onrender.com)  
-**📹 Project Video:** [👉 Click here to view live video](#)  
+**🌐 Live Demo:** 
+[👉 Click here to view the live AI dashboard](https://failure-prediction-ai.onrender.com)  
+
+**📹 Project Video:** 
+[👉 Click here to view live video](#)  
 
 ## 📌 Project Overview
 Developed as part of an intensive AI/ML Internship program, this project is a comprehensive **Market Intelligence and Risk Analytics Dashboard** designed for Venture Capitalists and evaluators. It analyzes the feasibility of a startup building a "Machine Learning System for Early Detection of Equipment Failure." 
