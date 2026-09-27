@@ -3,7 +3,11 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-Backend-green.svg)
 ![Gemini](https://img.shields.io/badge/AI-Google_Gemini-orange.svg)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Completed-success.svg)
+
+**🌐 Live Demo:** [👉 Click here to view the live AI dashboard](https://failure-prediction-ai.onrender.com)  
+**📹 Project Video:** [👉 Click here to view live video](#)  
 
 ## 📌 Project Overview
 Developed as part of an intensive AI/ML Internship program, this project is a comprehensive **Market Intelligence and Risk Analytics Dashboard** designed for Venture Capitalists and evaluators. It analyzes the feasibility of a startup building a "Machine Learning System for Early Detection of Equipment Failure." 
@@ -37,9 +41,11 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 ## 🛠️ Tech Stack
 *   **Backend:** Python, Flask
+*   **Database:** PostgreSQL
 *   **Frontend:** HTML5, CSS3, Bootstrap 5, Jinja2 Templates
 *   **AI Engine:** Google Gemini API (`google-genai`)
 *   **Data Visualization:** Chart.js
+*   **Cloud Deployment:** Render
 *   **Architecture:** Modular MVC approach
 
 ---
@@ -72,20 +78,28 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/TeamC/Team-C-Failure-Prediction-AI.git
+git clone [https://github.com/TeamC/Team-C-Failure-Prediction-AI.git](https://github.com/TeamC/Team-C-Failure-Prediction-AI.git)
 cd Team-C-Failure-Prediction-AI
 ```
+
 **2. Create a virtual environment & install dependencies**
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
-pip install flask google-genai pandas
+pip install -r requirements.txt
 ```
-**3. Configure the AI Engine**
+**3. Configure Environment Variables & Database**
 
 Get a free API key from Google AI Studio.
 
-Update the API_KEY variable inside ai_engine.py with your active Gemini API key.
+Ensure PostgreSQL is installed locally, or have a cloud database URL ready.
+
+Set your environment variables (API_KEY and DATABASE_URL).
+
+Initialize the database tables by running:
+```bash
+python setup_db.py
+```
 
 **4. Run the application**
 ```bash
