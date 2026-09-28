@@ -53,9 +53,6 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 ---
 
-*   **Cloud Deployment:** Render
-*   **Architecture:** Modular MVC approach
-
 ## 📁 Project Folder Structure
 
 ```text
