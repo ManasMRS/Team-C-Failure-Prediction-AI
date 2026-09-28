@@ -53,6 +53,34 @@ The system leverages data analytics, SWOT generation, and state-of-the-art Gener
 
 ---
 
+*   **Cloud Deployment:** Render
+*   **Architecture:** Modular MVC approach
+
+## 📁 Project Folder Structure
+
+```text
+Failure-Prediction-AI/
+│
+├── app.py                 # Main application logic, API routing & server orchestration
+├── ai_engine.py           # Google Gemini LLM integration & prompt engineering logic
+├── database.py            # PostgreSQL database connection & secure environment variables
+├── setup_db.py            # Automated script for cloud database schema initialization
+├── requirements.txt       # Project dependencies (Flask, google-genai, psycopg2, etc.)
+├── .gitignore             # Security exclusions (.env, __pycache__, venv)
+│
+├── docs/                  # Project Documentation
+│   └── report.html        # Comprehensive Project Submission Report (Print-ready A4 HTML)
+│
+├── static/                # Client-side Static Assets
+│   ├── css/
+│   │   └── style.css      # Custom dark-theme corporate UI styling
+│   └── assets/            # Dashboard workflow screenshots & diagrams
+│
+└── templates/             # HTML View Templates (Jinja2)
+    ├── input.html         # Startup data collection & profiling interface
+    └── dashboard.html     # Final AI recommendations & dynamic risk analytics UI
+```
+
 ## 📸 Dashboard Screenshots
 
 ### 1. Project Input Phase
