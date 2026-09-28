@@ -66,7 +66,7 @@ Failure-Prediction-AI/
 ├── .gitignore             # Security exclusions (.env, __pycache__, venv)
 │
 ├── docs/                  # Project Documentation
-│   └── report.html        # Comprehensive Project Submission Report (Print-ready A4 HTML)
+│   └── Team_C_Project_Report.pdf         # Comprehensive Project Submission Report (PDF)
 │
 ├── static/                # Client-side Static Assets
 │   ├── css/
