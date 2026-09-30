@@ -138,4 +138,6 @@ python app.py
 ```
 The application will be live at [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
+
 Built with ❤️ by Team C as part of the AI/ML Internship Track.
+
